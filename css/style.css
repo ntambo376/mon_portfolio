@@ -1,25 +1,26 @@
-:root{
-    --violet-doux:#6C63FF;
+:root {
+    --violet-doux: #6C63FF;
     --violet-fonce: #534EDD;
-    --orange-vif:#ffa726;
-    --gris-ultra-fonce:#333;
-    --gris-fonce:#666;
-    --gris-ultra-clair:#f8f8f8;
-    --gris-clair:#EEE;
+    --orange-vif: #ffa726;
+    --gris-ultra-fonce: #333;
+    --gris-fonce: #666;
+    --gris-ultra-clair: #f8f8f8;
+    --gris-clair: #EEE;
 }
 
-*   {
-        margin: 0;
-        padding: 0;
-        box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: var(--gris-ultra-clair);
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
 }
 
+/* --- NAVIGATION --- */
 header {
     background-color: white;
     box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.05);
@@ -29,68 +30,39 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem;
 }
 
 header div a {
     text-decoration: none;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--violet-doux);
 }
 
-ul li {
-    list-style: none;
-    margin-left: 15px;
-}
-
-ul {
-    display: flex; 
-}
-
-ul li a {
+header ul { display: flex; list-style: none; }
+header ul li { margin-left: 20px; }
+header ul li a {
     text-decoration: none;
     color: var(--gris-ultra-fonce);
     font-weight: 600;
-    font-size: 1.1rem;
-    position: relative;
     padding: 8px 0;
+    transition: color 0.3s ease;
 }
 
-ul li a:hover {
+header ul li a:hover, a.active {
     color: var(--violet-doux);
+    border-bottom: 3px solid var(--violet-doux);
 }
 
-ul li a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 0%;
-    background-color: var(--violet-doux);
-    transition: width 0.3s ease;
-}
-
-ul li a:hover::after {
-    width: 100%;
-}
-
-a.active {
-    color: var(--violet-doux);
-}
-
-a.active::after {
-    width: 100%;
-}
-
+/* --- SECTION HERO (Index) --- */
 section.hero {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:5rem;
+    gap: 5rem;
+    padding: 5rem 10%;
     text-align: center;
-    margin-top: 5rem;
 }
 
 .hero img {
@@ -98,20 +70,13 @@ section.hero {
     height: 300px;
     object-fit: cover;
     border-radius: 50%;
-    border: 10px solid var(--violet-doux);
+    border: 8px solid var(--violet-doux);
 }
 
 .hero h1 {
     color: var(--violet-doux);
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-}
-
-.hero p {
-    color: var(--gris-fonce);
-    font-size: 1.3rem;
-    margin-bottom: 1.2rem;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero a {
@@ -119,112 +84,93 @@ section.hero {
     display: inline-block;
     background-color: var(--violet-doux);
     color: white;
-    padding: 15px 30px;
+    padding: 12px 25px;
     border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
     font-weight: 600;
-    margin-top: 1rem;
-    transition: backround-color o.3s ease, transform 0.2s ease ;
+    transition: transform 0.2s ease;
 }
 
-.hero a:hover {
-    background-color: var(--violet-fonce);
-    transform: translateY(-3px);
-}
+.hero a:hover { transform: translateY(-3px); background-color: var(--violet-fonce); }
 
-.apropos {
-    width: 800px;
-    margin: 6rem auto;
+/* --- TITRES & SECTIONS COMMUNES --- */
+section.apropos, section.titre-page {
+    max-width: 900px;
+    margin: 4rem auto;
     text-align: center;
+    padding: 0 20px;
 }
 
-section h2 {
+h2 {
     color: var(--violet-doux);
-    font-size: 2.6rem;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-section h2::after {
+h2::after {
     content: '';
     display: block;
     width: 60px;
     height: 4px;
     background-color: var(--violet-doux);
-    margin: 1.2rem auto;
+    margin: 10px auto;
     border-radius: 2px;
 }
 
-.apropos p {
-    margin-top: 2rem;
-    color: var(--gris-fonce);
-    font-size: 1.1rem;
-}
-
+/* --- TABLEAU (Compétences) --- */
 .competences table {
     width: 80%;
-    margin: 0 auto;
+    margin: 2rem auto 5rem;
     border-collapse: collapse;
-    background-color: #FFF;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     border-radius: 10px;
     overflow: hidden;
 }
 
-.competences table th, .competences table td {
-    padding: 15px;
+table thead { background: var(--violet-doux); color: white; }
+table th, table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--gris-clair); }
+
+/* --- GRILLES (Projets, Passions, Divertissement) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 20px;
 }
 
-.competences table thead {
-    background-color: var(--violet-doux);
-    color: #FFF;
-    text-transform: uppercase;
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
 }
 
-.competences table tbody td {
-    /* ajoute une bordure de 1px en bas de chaque cellule*/
-    border-bottom: 1px solid var(--gris-clair);
+.card:hover { transform: translateY(-10px); }
+
+.card-body { padding: 1.5rem; text-align: center; }
+
+/* --- FORMULAIRE (Contact) --- */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto 5rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-.competences table tbody tr:nth-child(even) {
-    background-color: #FDFDFD;
+.form-group { margin-bottom: 1.2rem; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 10px; border: 1px solid var(--gris-clair); border-radius: 5px;
 }
 
-.competences table tbody tr {
-    transition: backround-color 0.3s ease;
-}
-
-.competences table tbody tr:hover {
-    background-color: #F0F0F0;
-}
-
-.competences table thead th {
-    text-align: left;
-}
-
+/* --- FOOTER --- */
 footer {
-    margin-top: 3rem;
-    background-color: var(--violet-doux);
-    padding: 3rem 0;
+    background: var(--violet-doux);
+    color: white;
+    padding: 2rem 0;
     text-align: center;
-}
-
-footer p {
-    color: white;
-    margin-bottom: 1.2rem;
-}
-
-footer a {
-    display: inline-block;
-    font-size: 1.6rem;
-    color: white;
-    margin: 0 10px;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-footer a:hover {
-    color: var(--orange-vif);
-    transform: translateY(-3px)
 }
